@@ -1,6 +1,7 @@
 
 using HousingMaroc.AppInjections;
 using HousingMaroc.Infrastructure;
+using HousingMaroc.Middlewares;
 using Microsoft.EntityFrameworkCore;
 
 namespace HousingMaroc;
@@ -32,13 +33,14 @@ public class Program
 
         app.UseAuthentication();
         app.UseRouting();
+        app.UseMiddleware<ExceptionHandlingMiddleware>();
         app.UseAuthorization();
         app.MapControllers();
         ApplyMigration(app);
         app.Run();
     }
 
-    private static void ApplyMigration(WebApplication app)
+    private static void ApplyMigration(IHost app)
     {
         using var scope = app.Services.CreateScope();
         var services = scope.ServiceProvider;

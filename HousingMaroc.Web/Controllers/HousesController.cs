@@ -1,4 +1,5 @@
-﻿using HousingMaroc.Application.House.Queries;
+﻿using HousingMaroc.Application.Housing.Commands;
+using HousingMaroc.Application.Housing.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,5 +17,13 @@ public class HousesController(IMediator mediator) : ControllerBase
         var house = await _mediator.Send(new GetHouseQuery { Id = id });
         
         return Ok(house);
+    }
+    
+    [HttpPost("add-house-offer")]
+    public async Task<IActionResult> AddHouseOffer([FromBody] AddHouseCommand command)
+    {
+        await _mediator.Send(command);
+        
+        return Ok();
     }
 }

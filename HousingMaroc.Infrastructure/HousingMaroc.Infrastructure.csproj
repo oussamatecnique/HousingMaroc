@@ -17,4 +17,8 @@
       <ProjectReference Include="..\HousingMaroc.Domain\HousingMaroc.Domain.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Housing\" />
+    </ItemGroup>
+
 </Project>

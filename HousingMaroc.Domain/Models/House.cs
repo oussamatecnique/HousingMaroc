@@ -27,4 +27,6 @@ public class House
     public HouseType Type { get; set; }
     
     public ICollection<HouseAmenity> HouseAmenities { get; set; }
+    
+    public ICollection<HouseImage> HouseImages { get; set; }
 }

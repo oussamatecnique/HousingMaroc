@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using HousingMaroc.Domain.Models;
+﻿using HousingMaroc.Domain.Models;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace HousingMaroc.Infrastructure.Configurations;

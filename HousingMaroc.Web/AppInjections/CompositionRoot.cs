@@ -1,4 +1,4 @@
-﻿using HousingMaroc.Application.AppInjections;
+﻿using HousingMaroc.Application;
 using HousingMaroc.Infrastructure;
 
 namespace HousingMaroc.AppInjections;
