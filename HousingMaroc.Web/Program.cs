@@ -32,7 +32,7 @@ public class Program
         app.UseHttpsRedirection();
 
         app.UseAuthentication();
-        app.UseRouting();
+        app.UseCors("AllowAnyOrigin");
         app.UseMiddleware<ExceptionHandlingMiddleware>();
         app.UseAuthorization();
         app.MapControllers();

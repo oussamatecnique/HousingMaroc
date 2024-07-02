@@ -20,11 +20,23 @@ public static class AppComposition
         services.AddValidatorsFromAssembly(typeof(AppComposition).Assembly);
         services.AddScoped<IJWTHelper, JWTHelper>();
         services.AddScoped<IUserContext, UserContext>();
+        services.AddCors(options =>
+        {
+            options.AddPolicy("AllowAnyOrigin",
+                builder =>
+                {
+                    builder
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader() //  Allow all headers, including content-type
+                        .AllowAnyMethod();
+                });
+        });
         
         RegisterAuthentication(services, configuration);
 
         return services;
     }
+
 
     private static void RegisterAuthentication(IServiceCollection services, IConfiguration configuration)
     {

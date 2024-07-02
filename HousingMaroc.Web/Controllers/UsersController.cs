@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace HousingMaroc.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("api/[controller]")]
 public class UsersController(IMediator mediator) : ControllerBase
 {
     private readonly IMediator _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
